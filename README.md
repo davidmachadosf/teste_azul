@@ -262,7 +262,7 @@ Estão disponíveis as seguintes buscas de clientes:
 
 ## Instruções para teste no Postman
 
-* Baixar o arquivo [Testes azul.postman_collection.json](https://github.com/davidmachadosf/test_azul/blob/master/src/test/postman/Testes%20azul.postman_collection.json) e importar como uma colection do Postman:
+* Baixar o arquivo [Testes Azul.postman_collection.json](https://github.com/davidmachadosf/test_azul/blob/master/src/test/postman/Testes%20Azul.postman_collection.json) e importar como uma colection do Postman:
 
 ![Imagem 1](Clipboard-1.jpg)
 
