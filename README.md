@@ -6,7 +6,7 @@
 
 O código fonte da aplicação foi disponibilizado no GitHub pelo link: 
 
-https://github.com/davidmachadosf/test_azul.git
+https://github.com/davidmachadosf/teste_azul.git
 
 ## Deploy (Heroku)
 
