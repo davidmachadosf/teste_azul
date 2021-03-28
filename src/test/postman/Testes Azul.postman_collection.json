@@ -1,0 +1,930 @@
+{
+	"info": {
+		"_postman_id": "e21ca7d0-b113-4a2c-8439-59b7295b88b7",
+		"name": "Testes azul",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Teste do Deploy",
+			"item": [
+				{
+					"name": "Testes do Actuator",
+					"item": [
+						{
+							"name": "Status da Aplicação (/health)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/actuator/health",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ambiente da Aplicação (/env)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/actuator/env",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"actuator",
+										"env"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verificando Database",
+					"item": [
+						{
+							"name": "Página index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}",
+									"host": [
+										"{{host}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tabela de usuarios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/showUsuarios",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"showUsuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tabela de clientes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/showClientes",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"showClientes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Serviços básicos para teste",
+					"item": [
+						{
+							"name": "Hello World!!",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/hello",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"hello"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Data e hora",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/now",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"now"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Somando",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/add?a=2&b=3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"add"
+									],
+									"query": [
+										{
+											"key": "a",
+											"value": "2"
+										},
+										{
+											"key": "b",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Multiplicando",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/mult?a=1123&b=1224",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"mult"
+									],
+									"query": [
+										{
+											"key": "a",
+											"value": "1123"
+										},
+										{
+											"key": "b",
+											"value": "1224"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bye bye...",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/bye",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"bye"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Consultas",
+					"item": [
+						{
+							"name": "Lista consultas disponíveis",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/usuarios/search/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"usuarios",
+										"search",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta usuários pelo login",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/usuarios/search/getByLogin?login=admin",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"usuarios",
+										"search",
+										"getByLogin"
+									],
+									"query": [
+										{
+											"key": "login",
+											"value": "admin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta usuários por autorização de acesso",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/usuarios/search/findByRolesContainingIgnoreCase?role=view",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"usuarios",
+										"search",
+										"findByRolesContainingIgnoreCase"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "view"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Insere ou substitui usuário pelo login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"ze001\",\r\n    \"roles\": \"EDIT,VIEW\",\r\n    \"hash\": \"12121212\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/usuarios/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/usuarios/ze001",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"usuarios",
+								"ze001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera autorizaçoes de acesso do usuário",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roles\": \"ADMIN,VIEW\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/usuarios/user01",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"usuarios",
+								"user01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera hash da senha do usuário",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hash\": \"237657325275576\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/usuarios/user01",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"usuarios",
+								"user01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera senha do usuário",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/alterasenha/edit01/abretesézamo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"alterasenha",
+								"edit01",
+								"abretesézamo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verifica senha errada do usuário",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/verificasenha/edit01/abracadabra",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verificasenha",
+								"edit01",
+								"abracadabra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verifica senha correta do usuário",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/verificasenha/edit01/abretesézamo",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verificasenha",
+								"edit01",
+								"abretesézamo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtém token de acesso - fracasso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/edit01/estouchutandoumasenha",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"edit01",
+								"estouchutandoumasenha"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtém token de acesso - sucesso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/god/abracadabra",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"god",
+								"abracadabra"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Consultas",
+					"item": [
+						{
+							"name": "Lista consultas disponíveis",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/clientes/search",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clientes",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta cliente pelo CPF",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/clientes/00000000005",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clientes",
+										"00000000005"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta nome pelo CPF",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/clientes/search/findNomeByCpf?cpf=00000000003",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findNomeByCpf"
+									],
+									"query": [
+										{
+											"key": "cpf",
+											"value": "00000000003"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta clientes homônimos pelo nome",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/clientes/search/findByNomeIgnoreCase?nome=chica",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findByNomeIgnoreCase"
+									],
+									"query": [
+										{
+											"key": "nome",
+											"value": "chica"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta clientes por parte do nome",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/clientes/search/findByNomeContainingIgnoreCaseOrderByNome?busca=zé",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findByNomeContainingIgnoreCaseOrderByNome"
+									],
+									"query": [
+										{
+											"key": "busca",
+											"value": "zé"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta clientes por parte do logradouro",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/clientes/search/findByLogradouroContainingIgnoreCaseOrderByLogradouro?busca=30",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findByLogradouroContainingIgnoreCaseOrderByLogradouro"
+									],
+									"query": [
+										{
+											"key": "busca",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta clientes por parte do bairro",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://test-azul.herokuapp.com/clientes/search/findByBairroContainingIgnoreCaseOrderByBairro?busca=vila",
+									"protocol": "https",
+									"host": [
+										"test-azul",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findByBairroContainingIgnoreCaseOrderByBairro"
+									],
+									"query": [
+										{
+											"key": "busca",
+											"value": "vila"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta clientes por parte da cidade",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://test-azul.herokuapp.com/clientes/search/findByCidadeContainingIgnoreCaseOrderByCidade?busca=au",
+									"protocol": "https",
+									"host": [
+										"test-azul",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findByCidadeContainingIgnoreCaseOrderByCidade"
+									],
+									"query": [
+										{
+											"key": "busca",
+											"value": "au"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta clientes por estado",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://test-azul.herokuapp.com/clientes/search/findByEstadoIgnoreCase?uf=am",
+									"protocol": "https",
+									"host": [
+										"test-azul",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findByEstadoIgnoreCase"
+									],
+									"query": [
+										{
+											"key": "uf",
+											"value": "am"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta clientes por CEP",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://test-azul.herokuapp.com/clientes/search/findByCep?cep=05000-002",
+									"protocol": "https",
+									"host": [
+										"test-azul",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"clientes",
+										"search",
+										"findByCep"
+									],
+									"query": [
+										{
+											"key": "cep",
+											"value": "05000-002"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Insere ou substitui cliente pelo CPF",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"00000000015\",\r\n    \"nome\": \"Zé 0555\",\r\n    \"logradouro\": \"Rua Comprida, 300000\",\r\n    \"bairro\": \"Vila Sézamo\",\r\n    \"cidade\": \"Taubaté\",\r\n    \"estado\": \"SP\",\r\n    \"cep\": \"05000-002\"\r\n}    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clientes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera alguns dados do cliente",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bairro\": \"Morro do Macaco\",\r\n    \"cidade\": \"Pindamonhangaba\",\r\n    \"cep\": \"04900-002\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clientes/00000000005",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clientes",
+								"00000000005"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clientes/00000000015",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clientes",
+								"00000000015"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "qualquermerda",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

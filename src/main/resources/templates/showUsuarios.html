@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- ********* OBS.: se estiver testando no Postman, isto é melhor visualizado na aba de PREVIEW ********* -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Usuários</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+        <h2>Lista dos Usuários</h2>
+
+        <table border=1>
+            <tr>
+                <th>Login</th>
+                <th>Roles</th>
+                <th>Hash</th>
+            </tr>
+            
+            <tr th:each="usuario : ${usuarios}">
+                <td th:text="${usuario.login}">Login</td>
+                <td th:text="${usuario.roles}">Roles</td>
+                <td th:text="${#strings.abbreviate(usuario.hash, 42)}">Hash</td>
+            </tr>
+        </table>
+        
+        <br/><a href="database">&lt;&lt; Voltar</a>
+
+    </body>
+</html>

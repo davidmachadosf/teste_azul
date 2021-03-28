@@ -1,0 +1,184 @@
+2021-03-16 18:49:44.770  INFO 7104 --- [           main] b.c.d.test_azul.StartApplication     : Starting StartApplication using Java 15.0.1 on HAL with PID 7104 (C:\src\sts-4-workspaces\restserv.zip_expanded\restserv\target\classes started by David Machado in C:\src\sts-4-workspaces\restserv.zip_expanded\restserv)
+2021-03-16 18:49:44.775  INFO 7104 --- [           main] b.c.d.test_azul.StartApplication     : No active profile set, falling back to default profiles: default
+2021-03-16 18:49:53.088  INFO 7104 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-16 18:49:53.089  INFO 7104 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-16 18:49:53.363  INFO 7104 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-16 18:49:54.120  INFO 7104 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-16 18:49:58.291  INFO 7104 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-16 18:50:04.520  INFO 7104 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-16 18:50:08.329  INFO 7104 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-16 18:50:25.481  INFO 7104 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-16 18:50:36.082  INFO 7104 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-03-16 18:50:41.110  INFO 7104 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-16 18:51:06.916  INFO 7104 --- [           main] b.c.d.test_azul.StartApplication     : Started StartApplication in 83.987 seconds (JVM running for 89.089)
+2021-03-16 18:51:37.804  INFO 7104 --- [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/
+ QUERY:  null
+ HANDLER:ParameterizableViewController [view="forward:index.html"]
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/index.html
+ QUERY:  null
+ HANDLER:ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/]]
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/showUsuarios
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.controller.CadastroController#findUsuarios(Model)
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/showClientes
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.controller.CadastroController#findClientes(Model)
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/hello
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.controller.IndexController#hello()
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/now
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.controller.IndexController#now()
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/add
+ QUERY:  a=2&b=3
+ HANDLER:br.com.davidmachadosf.test_azul.controller.IndexController#add(Long, Long)
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/mult
+ QUERY:  a=1123&b=1224
+ HANDLER:br.com.davidmachadosf.test_azul.controller.IndexController#mult(Long, Long)
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/bye
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.controller.IndexController#bye()
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: PATCH
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/alterasenha/edit01/abretesézamo
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.service.utils.SenhaUtilService#alteraSenha(String, String)
+ROLES: ADMIN OWNER 
+LOGIN: edit01
+AUTORIZADO: false
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/verificasenha/edit01/abracadabra
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.service.utils.SenhaUtilService#verificaSenhaService(String, String)
+ROLES: ADMIN 
+AUTORIZADO: false
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/verificasenha/edit01/abretesézamo
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.service.utils.SenhaUtilService#verificaSenhaService(String, String)
+ROLES: ADMIN 
+AUTORIZADO: false
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/auth/edit01/estouchutandoumasenha
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.service.utils.SenhaUtilService#auth(String, String)
+AUTORIZADO: true
+
+***************************************
+ SCHEME: http
+ METHOD: GET
+ CONTEXT:
+ SERVCTX: org.apache.catalina.core.ApplicationContextFacade@709948dd
+ PATH:   null
+ REALPATH:null
+ SERVPATH:/auth/god/abracadabra
+ QUERY:  null
+ HANDLER:br.com.davidmachadosf.test_azul.service.utils.SenhaUtilService#auth(String, String)
+AUTORIZADO: true
