@@ -36,18 +36,16 @@ implements HandlerInterceptor {
     	
     	sb.append("handler("+handler.getClass().getName()+")->");
     	
-    	System.out.println(
-    		"\n***************************************"+
-    		"\n SCHEME: "+request.getScheme()+
-    		"\n METHOD: "+request.getMethod()+
-    	    "\n CONTEXT:"+request.getContextPath()+
-    	    "\n SERVCTX: "+request.getServletContext() +
-    	    "\n PATH:   "+request.getPathInfo()+
-    	    "\n REALPATH:"+request.getRealPath(request.getPathInfo())+
-    	    "\n SERVPATH:"+request.getServletPath()+
-    	    "\n QUERY:  "+request.getQueryString()+
-    		"\n HANDLER:"+handler.toString());
-    		
+		/*
+		 * System.out.println( "\n***************************************"+
+		 * "\n SCHEME: "+request.getScheme()+ "\n METHOD: "+request.getMethod()+
+		 * "\n CONTEXT:"+request.getContextPath()+
+		 * "\n SERVCTX: "+request.getServletContext() +
+		 * "\n PATH:   "+request.getPathInfo()+
+		 * "\n REALPATH:"+request.getRealPath(request.getPathInfo())+
+		 * "\n SERVPATH:"+request.getServletPath()+
+		 * "\n QUERY:  "+request.getQueryString()+ "\n HANDLER:"+handler.toString());
+		 */	
         
         if(!(handler instanceof HandlerMethod)) return true;
     	
