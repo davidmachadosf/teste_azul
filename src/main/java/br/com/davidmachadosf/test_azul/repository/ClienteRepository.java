@@ -21,19 +21,11 @@ public interface ClienteRepository extends PagingAndSortingRepository<Cliente, S
 	Cliente findNomeByCpf(@Param("cpf") String cpf);
 	
 	@RolesAutorizados({VIEW})
+	Cliente findNomeByEmail(@Param("email") String email);
+	
+	
+	@RolesAutorizados({VIEW})
 	List<Cliente> findByNomeIgnoreCase(@Param("nome") String nome);
 	@RolesAutorizados({VIEW})
 	List<Cliente> findByNomeContainingIgnoreCaseOrderByNome(@Param("busca") String busca);
-    
-	@RolesAutorizados({VIEW})
-	List<Cliente> findByLogradouroContainingIgnoreCaseOrderByLogradouro(@Param("busca") String busca);
-	@RolesAutorizados({VIEW})
-	List<Cliente> findByBairroContainingIgnoreCaseOrderByBairro(@Param("busca") String busca);
-	@RolesAutorizados({VIEW})
-	List<Cliente> findByCidadeContainingIgnoreCaseOrderByCidade(@Param("busca") String busca);
-	@RolesAutorizados({VIEW})
-	List<Cliente> findByEstadoIgnoreCase(@Param("uf") String uf);
-	@RolesAutorizados({VIEW})
-	List<Cliente> findByCep(@Param("cep") String cep);
-	
 }
