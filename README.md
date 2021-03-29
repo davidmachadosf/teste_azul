@@ -25,7 +25,7 @@ https://test-azul.herokuapp.com/actuator/env - exibe todas as variáveis do ambi
 
 
 
-## Documentaçção da API-Rest no Swagger
+## Documentação da API-Rest no Swagger
 
 Os endpoints expostos da API Rest, criado automaticamente pelo **Spring Data REST**, podem ser consultados nesta URL:
 
