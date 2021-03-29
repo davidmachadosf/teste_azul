@@ -12,15 +12,26 @@ https://github.com/davidmachadosf/teste_azul.git
 
 Configurou-se o github para que tono novo commit na branch master automaticamente publice a versão recente da aplicação na plataforma Heroku. A homepage web da aplicação, uma página simples para conferência dos dados gravados na base de dados, pode ser acessada pela url:
 
-https://test-azul.herokuapp.com/
+
 
 ## Checagem de status (Actuator)
 
-Pde ser feita uma checagem básica do status da aplicação pelos seguintes endpoints gerados pela ferramenta *Actuator*:
+Pode ser feita uma checagem básica do status da aplicação pelos seguintes endpoints gerados pela ferramenta *Actuator*:
 
 https://test-azul.herokuapp.com/actuator/health - verifica se a aplicação iniciou sem problemas
 
 https://test-azul.herokuapp.com/actuator/env - exibe todas as variáveis do ambiente onde se encontra a aplicação
+
+
+
+
+## Documentaçção da API-Rest no Swagger
+
+Os endpoints expostos da API Rest, criado automaticamente pelo **Spring Data REST**, podem ser consultados nesta URL:
+
+https://test-azul.herokuapp.com/swagger-ui/
+
+
 
 ## Auxílio de desenvolvimento
 
