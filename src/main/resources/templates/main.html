@@ -10,10 +10,8 @@
         <hr>
         <h1 th:text="${nomeVersao}">Nome da Aplicação (vX.Y.X)</h1>
         <hr><br/>
-        Mostrar cadastro:
         <ul>
-            <li><a href="showUsuarios">de usuários</a>
-        	<li><a href="showClientes">de clientes</a>
+        	<li th:each="link : ${links}"><a href="th:text=${link[0]}">th:text=${link[1]}</a></li>
         </ul>
     </body>
 </html>

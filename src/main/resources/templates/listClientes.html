@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- ********* OBS.: se estiver testando no Postman, isto é melhor visualizado na aba de PREVIEW ********* -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Clientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+        <h2>Lista dos Clientes</h2>
+
+        <table border=1>
+            <tr>
+                <th>CPF</th>
+                <th>Nome</th>
+                <th>Email</th>
+                
+                <th>CEP</th>
+                <th>Rua</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                
+                <th>Editar</th>
+                <th>Remover</th>
+                
+            </tr>
+            
+            <tr th:each="cliente : ${clientes}">
+                
+                <td th:text="${cliente.cpf}">CPF</td>
+                <td th:text="${cliente.nome}">Nome</td>
+                <td th:text="${cliente.nome}">Email</td>
+                
+                <td th:text="${cliente.endereco.cep}">CEP</td>
+                <td th:text="${cliente.endereco.logradouro}">Rua</td>
+                <td th:text="${cliente.endereco.bairro}">Bairro</td>
+                <td th:text="${cliente.endereco.cidade}">Cidade</td>
+                <td th:text="${cliente.endereco.estado}">Estado</td>
+                
+                <td><a href="/editCliente/{cpf}">editar</a></td>                
+                <td><a href="/deleteCliente/{cpf}">remover</a></td>
+                
+                
+                
+            </tr>
+        </table>
+        
+        <br/><a href="/editCliente">Cadastrar Novo Cliente</a>
+        <br/></br><a href="main">&lt;&lt; Voltar</a>
+        
+
+    </body>
+</html>

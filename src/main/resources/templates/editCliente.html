@@ -1,0 +1,30 @@
+<html>
+
+	<head>
+		<title>Dados do Cliente</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="js/pesquisacep.js"></script>
+	</head>
+	
+	<body>
+	    <h1>Dados do Cliente</h1> 
+		<form method="post" action="/saveCliente">
+		    <input type="hidden" name="endereco.id" value="${cliente.endereco.id}" />
+			
+			<label>CPF:    <input name="cpf"   type="text" id="cpf"    size="11" value="${cliente.cpf}"/></label><br />
+			<label>Nome:   <input name="nome"  type="text" id="nome"   size="60" value="${cliente.nome}"/></label><br />
+			<label>Email:  <input name="email" type="text" id="email"  size="60" value="${cliente.email}"/></label><br />
+			
+			<label>Cep:    <input name="endereco.cep"        type="text" id="cep"        size="10" value="${cliente.endereco.cep}"
+			                      maxlength="9" onblur="pesquisacep(this.value);" value="${cliente.endereco.cep}"/></label><br />
+			<label>Rua:    <input name="endereco.logradouro" type="text" id="logradouro" size="60" value="${cliente.endereco.logradouro}"/></label><br />
+			<label>Bairro: <input name="endereco.bairro"     type="text" id="bairro"     size="40" value="${cliente.endereco.bairro}"/></label><br /> 
+			<label>Cidade: <input name="endereco.localidade" type="text" id="localidade" size="40" value="${cliente.endereco.localidade}"/></label><br /> 
+			<label>Estado: <input name="endereco.uf"         type="text" id="uf"         size="2"  value="${cliente.endereco.uf}"/></label><br />
+			
+			<input type="submit" value="Gravar">	
+		</form>
+		<br/><a href="main">&lt;&lt; Voltar</a>
+	</body>
+
+</html>

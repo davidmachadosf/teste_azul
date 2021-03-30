@@ -23,9 +23,7 @@ public class StartApplication implements RepositoryRestConfigurer {
 	
 	// configura JPA Data REST para exibir os ids das entidades nos responses
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        config.exposeIdsFor(Usuario.class);
-        config.exposeIdsFor(Cliente.class);
-        config.exposeIdsFor(Endereco.class);
+        config.exposeIdsFor(Usuario.class,Cliente.class,Endereco.class);
     }
 
 }
