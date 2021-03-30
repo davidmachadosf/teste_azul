@@ -10,23 +10,26 @@ DROP TABLE IF EXISTS tb02_clientes;
 
 CREATE TABLE tb02_clientes(
 	cpf VARCHAR(11) PRIMARY KEY, 
-	nome VARCHAR(50), 
-	logradouro VARCHAR(50), 
-	email VARCHAR(50),
+	nome VARCHAR(60), 
+	email VARCHAR(60),
 	endereco_id INT);
 
 
 DROP TABLE IF EXISTS tb03_enderecos;
 
 CREATE TABLE tb03_enderecos(
-	id INT GENERATED ALWAYS AS IDENTITY,
+	id INT PRIMARY KEY,
     cep VARCHAR(9), 
-	logradouro VARCHAR(50), 
-	complemento VARCHAR(50), 
-	bairro VARCHAR(50), 
-	localidade VARCHAR(50), 
-	uf VARCHAR(2), 
-	ibge VARCHAR(10), 
-	gia VARCHAR(10), 
-	ddd VARCHAR(3), 
-	siafi VARCHAR(10));
+	logradouro VARCHAR(60), 
+	bairro VARCHAR(40), 
+	localidade VARCHAR(40), 
+	uf VARCHAR(2));
+	
+	
+DROP SEQUENCE IF EXISTS seq01_enderecos;
+
+CREATE SEQUENCE seq01_enderecos
+MINVALUE 1
+MAXVALUE 9999999999999999
+START WITH 1
+INCREMENT BY 1;

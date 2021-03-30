@@ -11,7 +11,9 @@
         <h1 th:text="${nomeVersao}">Nome da Aplicação (vX.Y.X)</h1>
         <hr><br/>
         <ul>
-        	<li th:each="link : ${links}"><a href="th:text=${link[0]}">th:text=${link[1]}</a></li>
+            <th:block th:each="link:${links}">
+        	<li><a th:href="${link[0]}" th:text=${link[1]}>Link</a></li>
+        	</th:block>
         </ul>
     </body>
 </html>

@@ -8,19 +8,19 @@
 	
 	<body>
 	    <h1>Dados do Cliente</h1> 
-		<form method="post" action="/saveCliente">
-		    <input type="hidden" name="endereco.id" value="${cliente.endereco.id}" />
+		<form method="post"  th:action="@{/saveCliente}" th:object="${cliente}">
+		    <input type="hidden" th:field="*{endereco.id}" />		    
 			
-			<label>CPF:    <input name="cpf"   type="text" id="cpf"    size="11" value="${cliente.cpf}"/></label><br />
-			<label>Nome:   <input name="nome"  type="text" id="nome"   size="60" value="${cliente.nome}"/></label><br />
-			<label>Email:  <input name="email" type="text" id="email"  size="60" value="${cliente.email}"/></label><br />
-			
-			<label>Cep:    <input name="endereco.cep"        type="text" id="cep"        size="10" value="${cliente.endereco.cep}"
-			                      maxlength="9" onblur="pesquisacep(this.value);" value="${cliente.endereco.cep}"/></label><br />
-			<label>Rua:    <input name="endereco.logradouro" type="text" id="logradouro" size="60" value="${cliente.endereco.logradouro}"/></label><br />
-			<label>Bairro: <input name="endereco.bairro"     type="text" id="bairro"     size="40" value="${cliente.endereco.bairro}"/></label><br /> 
-			<label>Cidade: <input name="endereco.localidade" type="text" id="localidade" size="40" value="${cliente.endereco.localidade}"/></label><br /> 
-			<label>Estado: <input name="endereco.uf"         type="text" id="uf"         size="2"  value="${cliente.endereco.uf}"/></label><br />
+			<table border=0>
+			    <tr><td><label>CPF:    </td><td><input type="text" id="cpf"        size="11" maxlength="11" th:field="*{cpf}"/></label></td></tr>
+			    <tr><td><label>Nome:   </td><td><input type="text" id="nome"       size="60" maxlength="60" th:field="*{nome}"/></label></td></tr>
+			    <tr><td><label>Email:  </td><td><input type="text" id="email"      size="60" maxlength="60" th:field="*{email}"/></label></td></tr>			
+			    <tr><td><label>Cep:    </td><td><input type="text" id="cep"        size="10" maxlength="10" th:field="*{endereco.cep}" onblur="pesquisa(this.value);" /></label></td></tr>
+			    <tr><td><label>Rua:    </td><td><input type="text" id="logradouro" size="60" maxlength="60" th:field="*{endereco.logradouro}"/></label></td></tr>
+			    <tr><td><label>Bairro: </td><td><input type="text" id="bairro"     size="40" maxlength="40" th:field="*{endereco.bairro}"/></label></td></tr> 
+			    <tr><td><label>Cidade: </td><td><input type="text" id="localidade" size="40" maxlength="40" th:field="*{endereco.localidade}"/></label></td></tr> 
+			    <tr><td><label>Estado: </td><td><input type="text" id="uf"         size="2"  maxlength="2"  th:field="*{endereco.uf}"/></label></td></tr>			    
+			</table>
 			
 			<input type="submit" value="Gravar">	
 		</form>

@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.davidmachadosf.test_azul.model.Cliente;
 import br.com.davidmachadosf.test_azul.repository.ClienteRepository;
@@ -52,16 +52,21 @@ public class CadastroController {
 		return "listClientes";
 	}
 
-	@RequestMapping(value = "/editCliente/{cpf}")
-	public String editCliente(Model model, @PathVariable String cpf) {
+	@RequestMapping("/editCliente")
+	public String editCliente(@RequestParam(required=false) String cpf, Model model) {
 		if(null!=cpf) {
+			// editar dados do cliente
 			model.addAttribute("cliente", clienteRepo.findById(cpf));
+		}
+		else {
+			// cadastrar novo cliente
+			model.addAttribute("cliente", new Cliente());
 		}
 		return "editCliente";
 	}
 	
-	@RequestMapping(value = "/deleteCliente/{cpf}")
-	public String deleteCliente(@PathVariable String cpf) {
+	@RequestMapping("/deleteCliente")
+	public String deleteCliente(@RequestParam(required=true) String cpf, Model model) {
 		clienteRepo.deleteById(cpf);
 		return "redirect:/listClientes";
 	}
@@ -70,7 +75,5 @@ public class CadastroController {
 	public String saveCliente(@ModelAttribute("cliente") Cliente cliente) {
 		clienteRepo.save(cliente);
 		return "redirect:/listClientes";
-	}
-
-		
+	}	
 }
