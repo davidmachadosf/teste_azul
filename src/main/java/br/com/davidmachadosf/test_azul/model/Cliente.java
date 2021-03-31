@@ -17,17 +17,26 @@ import lombok.Data;
 public class Cliente {
 	
     
-    public Cliente() {
-		this.endereco = new Endereco();;
-	}
+    //public Cliente() {
+	//	this.endereco = new Endereco();;
+	//}
 
 	@Id
     String cpf;
     String nome;
     String email;
     
-    @OneToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name = "endereco_id")
-    @RestResource(path = "endereco", rel="endereco")
-    Endereco endereco;    
+    String cep;
+	String logradouro;
+	String bairro;
+	String localidade;
+	String uf;
+    
+	/*
+	 * @OneToOne(cascade=CascadeType.PERSIST)
+	 * 
+	 * @JoinColumn(name = "endereco_id")
+	 * 
+	 * @RestResource(path = "endereco", rel="endereco") Endereco endereco;
+	 */    
 }

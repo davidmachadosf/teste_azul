@@ -28,4 +28,15 @@ public interface ClienteRepository extends PagingAndSortingRepository<Cliente, S
 	List<Cliente> findByNomeIgnoreCase(@Param("nome") String nome);
 	@RolesAutorizados({VIEW})
 	List<Cliente> findByNomeContainingIgnoreCaseOrderByNome(@Param("busca") String busca);
+	
+	@RolesAutorizados({VIEW})
+	List<Cliente> findByLogradouroContainingIgnoreCaseOrderByLogradouro(@Param("busca") String busca);
+	@RolesAutorizados({VIEW})
+	List<Cliente> findByBairroContainingIgnoreCaseOrderByBairro(@Param("busca") String busca);
+	@RolesAutorizados({VIEW})
+	List<Cliente> findByLocalidadeContainingIgnoreCaseOrderByLocalidade(@Param("busca") String busca);
+	@RolesAutorizados({VIEW})
+	List<Cliente> findByUfIgnoreCase(@Param("uf") String uf);
+	@RolesAutorizados({VIEW})
+	List<Cliente> findByCep(@Param("cep") String cep);
 }
