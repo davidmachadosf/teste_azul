@@ -80,6 +80,9 @@ uf         | VARCHAR( 2) |
 
 A sequence usada para criar as chaves inteiras da tabela de endereços, definida como:
 
+
+ SEQUENCE DE ENDEREÇOS
+----- | ---- 
 NOME | seq01_enderecos
 MINVALUE | 1
 MAXVALUE 9999999999999999
