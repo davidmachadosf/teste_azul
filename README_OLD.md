@@ -1,5 +1,5 @@
 
-# Teste azul (v1.2.0)
+# Teste azul (v1.1.2)
 
 
 ## Código Fonte (GitHub)
@@ -10,9 +10,8 @@ https://github.com/davidmachadosf/teste_azul.git
 
 ## Deploy (Heroku)
 
-Configurou-se o github para que todo novo commit na branch master automaticamente publicasse a versão recente da aplicação na plataforma Heroku. A homepage web da aplicação pode ser acessada pela url:
+Configurou-se o github para que tono novo commit na branch master automaticamente publice a versão recente da aplicação na plataforma Heroku. A homepage web da aplicação, uma página simples para conferência dos dados gravados na base de dados, pode ser acessada pela url:
 
-https://test-azul.herokuapp.com
 
 
 ## Checagem de status (Actuator)
@@ -32,6 +31,17 @@ Os endpoints expostos da API Rest, criado automaticamente pelo **Spring Data RES
 
 https://test-azul.herokuapp.com/swagger-ui/
 
+
+
+## Auxílio de desenvolvimento
+
+Durante o desenvolvimento o conteúdo da base de dados pode ser verificado em:
+
+https://test-azul.herokuapp.com/showUsuarios - exibe o conteúdo da tabesa de usuários do sistema
+
+https://test-azul.herokuapp.com/showClientes - exibe conteúdo da tabela de clientes cadastrados
+
+Optou-se por não se colocar verificações de segurança nesta página por ser apenas uma conferência de dados para a fase de desenvolvimento da aplicvação, Isto pode ser feito posteriormente ou pode-se eliminar completamente tais páginas, que só são úteis nesta fase.
 
 
 ## Base de Dados
@@ -56,35 +66,13 @@ Clientes cadastrados no sistema pelos usuários habilitados para isto (com Role=
 
 campo | tipo | chave 
 ----- | ---- | ------
-cpf         | VARCHAR(11) | PRIMARY KEY
-nome        | VARCHAR(60) |
-nome        | VARCHAR(60) |
-endereco_id | INT         |
-
-
-`tb03_enderecos`
-
-Embora tenha uma relação simples de um-para-um com a tabela de clientes, sendo ambas ligadas pera chave endereco_id<->id, as informações de endereço foram mantidas separadas por organização e clareza. O único dado essencial é o cep. As demais informações são preenchidas por consulta ao sistema externo **ViaCEP**, embora possam ser alteradas em seguida com a desvantagem de se estar correndo o risco de comprometer a integridade destas informações. Naturalmente a informação de logradouro precisa ser complementada depois da consulta, copm informação d número da residência por exemplo. A chave desta tabela é obtida de uma sewquence do banco de dados criada para esta finalidade.
-
-campo | tipo | chave 
------ | ---- | ------
-id         | INT         |
+cpf        | VARCHAR(11) | PRIMARY KEY
+nome       | VARCHAR(50) |
+logradouro | VARCHAR(50) |
+bairro     | VARCHAR(50) |
+cidade     | VARCHAR(50) |
+estado     | VARCHAR( 2) |
 cep        | VARCHAR( 9) |
-logradouro | VARCHAR(60) |
-bairro     | VARCHAR(40) |
-localidade | VARCHAR(40) |
-uf         | VARCHAR( 2) |
-
-
-`seq01_enderecos`
-
-A sequence usada para criar as chaves inteiras da tabela de endereços, definida como:
-
-NOME | seq01_enderecos
-MINVALUE | 1
-MAXVALUE 9999999999999999
-START | 1
-INCREMENT | 1
 
 
 ## Autorizações de acesso aos serviços
@@ -110,9 +98,6 @@ As autorizações de acesso que podem ser atribuidas aos usuários são os segui
 
 `OWNER` tem permissão para:
 >* indica que usuário só pode acessar o serviço se estiver alterando seus próprios dados
-
-
-Porém tais autorizações só foram reaproveitadas de projeto anterior que as exigia. Para este projeto mais simples o usuário tem permissão total de acesso e modificação a tudo, mas as autorizações por endpoint e métodos de acesso podem ser reconfiguradas se isto for desejado.
 
 
 
@@ -174,6 +159,116 @@ Exemplo de validação de senha de um usuário inexistente no sistema:
 ```
 Usuário Inexistente!
 ```
+
+ 
+
+
+
+## Serviços de criação/substituição
+
+Inclusão ou substituição de registros, baseados nas respectivas chaves primárias de cada entidade, são feitas com uma chamada REST utilizando o método **POST**. Deve ser preenchido no *body* da chamada uma estrutura json com os dados a serem inseridos ou substituidos. Esta operação substitui integralmente todos os campos, e campos não fornecidos na requisição são enviados como *NULL*.   
+
+`usuarios`
+>* `POST` https://test-azul.herokuapp.com/usuarios
+```
+{
+    "login": "ze001",
+    "roles": "EDIT,VIEW",
+    "hash": "12121212"
+}
+```
+
+`clientes`
+>* `POST` https://test-azul.herokuapp.com/clientes
+```
+{
+    "cpf": "00000000015",
+    "nome": "Zé 0555",
+    "logradouro": "Rua Comprida, 300000",
+    "bairro": "Vila Sézamo",
+    "cidade": "Taubaté",
+    "estado": "SP",
+    "cep": "05000-002"
+}    
+```
+
+## Serviços de alteração de campos
+
+Alterações em registros que não sejam chaves primárias são feitas com uma chamada REST utilizando o método **PATCH**. Deve ser preenchido no *body* da chamada uma estrutura json com os dados a serem alterados e informado na URI a chave primária do registro. Neste caso não há necessidade de enviar todos os campos: campos que não forem fornecidos na estrutura não serão alterados.   
+
+`usuarios`
+>* `PATCH` https://test-azul.herokuapp.com/usuarios/LOGIN_DO_USUARIO
+```
+{
+    "roles": "ADMIN,VIEW"
+}
+```
+
+`clientes`
+>* `PATCH` https://test-azul.herokuapp.com/clientes/CPF_DO_CLIENTE
+```
+{
+    "bairro": "Morro do Macaco",
+    "cidade": "Pindamonhangaba",
+    "cep": "04900-002"
+} 
+```
+
+## Serviços de remoção de registros
+
+Remoções de registros são feitas com uma chamada REST utilizando o método **DEL**. A chave primária do registro a ser deletado é passada na URI de chamada.  
+
+`usuarios`
+>* `DEL` https://test-azul.herokuapp.com/usuarios/LOGIN_DO_USUARIO
+
+`clientes`
+>* `DEL` https://test-azul.herokuapp.com/clientes/CPF_DO_CLIENTE
+
+
+## Serviços de busca
+Alguns dos métodos de pesquisa comuns à interface JPA foram expostos como serviços rest. Podemos obter uma listagem de todos os métodops de busca expostos pela chamada:
+
+>* https://test-azul.herokuapp.com/usuarios/search - para busca de usuários
+>* https://test-azul.herokuapp.com/clientes/search - para busca de clientes
+
+**OBS.:** *como todas são requisições usando o método* ``GET`` *elas podem ser testadas normalmente em qualquer browser, não há necessidade de ferramentas específicas como o Postman nestes casos.* 
+
+Estão disponíveis as seguintes buscas de usuários:
+
+>Consulta usuários pelo login
+>* ``GET``  https://test-azul.herokuapp.com/usuarios/search/getByLogin?login=admin
+
+>Consulta usuários por autorização de acesso
+>* ``GET``  https://test-azul.herokuapp.com/usuarios/search/findByRolesContainingIgnoreCase?role=view
+
+Estão disponíveis as seguintes buscas de clientes:
+
+>Consulta cliente pelo CPF
+>* ``GET``  https://test-azul.herokuapp.com/clientes/00000000005
+
+>Consulta nome pelo CPF
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findNomeByCpf?cpf=00000000003
+
+>Consulta clientes homônimos pelo nome
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findByNomeIgnoreCase?nome=chica
+
+>Consulta clientes por parte do nome
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findByNomeContainingIgnoreCaseOrderByNome?busca=zé
+
+>Consulta clientes por parte do logradouro
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findByLogradouroContainingIgnoreCaseOrderByLogradouro?busca=30
+
+>Consulta clientes por parte do bairro
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findByBairroContainingIgnoreCaseOrderByBairro?busca=vila
+
+>Consulta clientes por parte da cidade
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findByCidadeContainingIgnoreCaseOrderByCidade?busca=au
+
+>Consulta clientes por estado
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findByEstadoIgnoreCase?uf=am
+
+>Consulta clientes por CEP
+>* ``GET``  https://test-azul.herokuapp.com/clientes/search/findByCep?cep=05000-002
 
 
 ## Instruções para teste no Postman

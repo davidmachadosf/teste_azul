@@ -19,11 +19,13 @@ public class Endereco {
 	@GeneratedValue(generator = "seq_endereco") 
 	Long id;
 	
-	String cep="04";
-	String logradouro="05";
-	String bairro="06";
-	String localidade="07";
-	String uf="08";
+	String cep;
+	String logradouro;
+	String bairro;
+	String localidade;
+	String uf;
+	
+	// campos adicionais retornados pelo VIaCEP, mas que não são usados aqui
 	//String ibge;
 	//String gia;
 	//String ddd;

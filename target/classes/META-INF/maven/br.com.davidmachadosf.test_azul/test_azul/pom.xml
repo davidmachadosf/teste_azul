@@ -12,7 +12,7 @@
 	
 	<groupId>br.com.davidmachadosf.test_azul</groupId>
 	<artifactId>test_azul</artifactId>
-	<version>1.1.2</version>
+	<version>1.2.0</version>
 	<name>test_azul</name>
 	<description>Servidor REST do teste azul</description>
 	

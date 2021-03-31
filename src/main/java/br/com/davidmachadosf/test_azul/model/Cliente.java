@@ -22,9 +22,9 @@ public class Cliente {
 	}
 
 	@Id
-    String cpf="1";
-    String nome="2";
-    String email="3";
+    String cpf;
+    String nome;
+    String email;
     
     @OneToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "endereco_id")

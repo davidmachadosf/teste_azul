@@ -37,10 +37,10 @@
                 <td th:text="${cliente.endereco.logradouro}">Rua</td>
                 <td th:text="${cliente.endereco.bairro}">Bairro</td>
                 <td th:text="${cliente.endereco.localidade}">Cidade</td>
-                <td th:text="${cliente.endereco.estado}">Estado</td>
+                <td th:text="${cliente.endereco.uf}">Estado</td>
                 
-                <td><a href="/editCliente/{cpf}">editar</a></td>                
-                <td><a href="/deleteCliente/{cpf}">remover</a></td>
+                <td><a th:href="@{/editCliente(cpf=${cliente.cpf})}">editar</a></td>                
+                <td><a th:href="@{/deleteCliente(cpf=${cliente.cpf})}">remover</a></td>
                 
                 
                 

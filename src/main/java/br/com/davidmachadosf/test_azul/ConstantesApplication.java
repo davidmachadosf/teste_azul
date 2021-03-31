@@ -7,7 +7,7 @@ public class ConstantesApplication {
 	
 	public static final String APP_TITULO= "Teste azul";
 	public static final String APP_NOME= "Cadastro de Clientes";
-	public static final String APP_VERSAO = "v1.1.2";
+	public static final String APP_VERSAO = "v1.2.0";
 	
     public static final Charset BASE64_CHARSET = StandardCharsets.UTF_8;
 	
