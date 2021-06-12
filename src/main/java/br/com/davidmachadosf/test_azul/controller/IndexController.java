@@ -9,9 +9,13 @@ import java.util.Date;
 
 import javax.websocket.server.PathParam;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.davidmachadosf.test_azul.model.cv.Curriculum;
+import br.com.davidmachadosf.test_azul.service.utils.CurriculumUtil;
 
 @RestController
 @RequestMapping(value ="")
@@ -48,5 +52,12 @@ public class IndexController {
 	@RequestMapping(value ="/mult")
 	public String mult(@PathParam("a") Long a, @PathParam("b") Long b) {
     	return a+"x"+b+"="+(a*b);
+	}
+	
+	@GetMapping
+	@RequestMapping(value ="/cv")
+	public Curriculum curriculum() {
+ 		Curriculum cvDavid = new Curriculum();
+ 		return CurriculumUtil.populateDavidMachadoSantosFilhoData(cvDavid); 
 	}
 }

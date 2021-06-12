@@ -1,5 +1,22 @@
 
-# Teste azul (v1.2.0)
+# Teste azul (v2.0.0)
+
+## Curriculum Online
+
+Foi criado um recurso para visualização do currículo do autor, David Machado Santos Filho. Todos os dados do currículo são gerados programaticamente, e exibidos ou baixados nos visualizadores apropriados.
+
+Atualmente existem duas visões distintas implementadas:
+
+* Visão REST: o autor usa para depuração, e simplesmente apresenta um retorno JSON sobre o model dos dados preenchidos. Óbviamente não é uma versão para apresentação formal, mas apenas um auxílio para desenvolvimento. 
+O endpoint desta visão é: https://test-azul.herokuapp.com/cv
+
+
+* Visão HTML: aqui é gerada uma página HTML com as informações do currículo do autor, mais adequada para ser apresentada. Isto permite criar uma separação entre a apresentação dos dados e os dados em si, possibilitando dividir o foco em cada um dos aspectos de cada vez. 
+Esta visão HTML é acessada na seguinte URL: https://test-azul.herokuapp.com/curriculum
+
+
+Outros formatos estão previstos, este eles arquivos WORD (doc), PDFs e mesmo saidas em LateX, formato bastante apreciado pelo autor. Aparecerão em versões posteriores desta aplicação.
+
 
 
 ## Código Fonte (GitHub)

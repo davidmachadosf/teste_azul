@@ -1,5 +1,5 @@
 package br.com.davidmachadosf.test_azul.repository;
-import static br.com.davidmachadosf.test_azul.model.enums.RoleType.VIEW;
+import static br.com.davidmachadosf.test_azul.enums.RoleType.VIEW;
 
 import java.util.List;
 

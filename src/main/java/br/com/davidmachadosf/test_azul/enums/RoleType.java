@@ -1,4 +1,4 @@
-package br.com.davidmachadosf.test_azul.model.enums;
+package br.com.davidmachadosf.test_azul.enums;
 
 public enum RoleType {
 	

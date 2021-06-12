@@ -1,7 +1,7 @@
 package br.com.davidmachadosf.test_azul.service.utils;
 
-import static br.com.davidmachadosf.test_azul.model.enums.RoleType.ADMIN;
-import static br.com.davidmachadosf.test_azul.model.enums.RoleType.OWNER;
+import static br.com.davidmachadosf.test_azul.enums.RoleType.ADMIN;
+import static br.com.davidmachadosf.test_azul.enums.RoleType.OWNER;
 import static org.springframework.http.ResponseEntity.ok;
 import static org.springframework.http.ResponseEntity.status;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.davidmachadosf.test_azul.enums.RoleType;
 import br.com.davidmachadosf.test_azul.interceptor.annotation.RolesAutorizados;
 import br.com.davidmachadosf.test_azul.model.Usuario;
-import br.com.davidmachadosf.test_azul.model.enums.RoleType;
 import br.com.davidmachadosf.test_azul.repository.UsuarioRepository;
 
 @Service

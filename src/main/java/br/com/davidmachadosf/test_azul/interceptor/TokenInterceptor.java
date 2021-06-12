@@ -1,7 +1,7 @@
 package br.com.davidmachadosf.test_azul.interceptor;
 import static br.com.davidmachadosf.test_azul.ConstantesApplication.HEADER_KEY_INTERCEPTOR;
 import static br.com.davidmachadosf.test_azul.ConstantesApplication.HEADER_KEY_TOKEN;
-import static br.com.davidmachadosf.test_azul.model.enums.RoleType.OWNER;
+import static br.com.davidmachadosf.test_azul.enums.RoleType.OWNER;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import br.com.davidmachadosf.test_azul.enums.RoleType;
 import br.com.davidmachadosf.test_azul.interceptor.annotation.RolesAutorizados;
-import br.com.davidmachadosf.test_azul.model.enums.RoleType;
 import br.com.davidmachadosf.test_azul.service.utils.SenhaUtil;
 import br.com.davidmachadosf.test_azul.service.utils.SenhaUtilService;
 

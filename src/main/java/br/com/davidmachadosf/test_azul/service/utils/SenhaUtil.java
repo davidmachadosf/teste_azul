@@ -3,7 +3,7 @@ package br.com.davidmachadosf.test_azul.service.utils;
 import static br.com.davidmachadosf.test_azul.ConstantesApplication.BASE64_CHARSET;
 import static br.com.davidmachadosf.test_azul.ConstantesApplication.CHAVE_CRIPTOGRAFIA;
 import static br.com.davidmachadosf.test_azul.ConstantesApplication.EXPIRES_DURATION;
-import static br.com.davidmachadosf.test_azul.model.enums.RoleType.OWNER;
+import static br.com.davidmachadosf.test_azul.enums.RoleType.OWNER;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,8 +16,8 @@ import java.util.List;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
+import br.com.davidmachadosf.test_azul.enums.RoleType;
 import br.com.davidmachadosf.test_azul.model.Usuario;
-import br.com.davidmachadosf.test_azul.model.enums.RoleType;
 import br.com.davidmachadosf.test_azul.repository.UsuarioRepository;
 
 public class SenhaUtil {

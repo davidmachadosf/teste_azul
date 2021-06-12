@@ -1,6 +1,6 @@
 package br.com.davidmachadosf.test_azul.repository;
 
-import static br.com.davidmachadosf.test_azul.model.enums.RoleType.ADMIN;
+import static br.com.davidmachadosf.test_azul.enums.RoleType.ADMIN;
 
 import java.util.List;
 
